@@ -2,6 +2,7 @@ import base64
 import json
 import os
 import sys
+import pyperclip
 
 try:
     import requests
@@ -110,6 +111,7 @@ def generatePassword():
         password = hotpPassword
 
     setCounter(counter + 1)
+    pyperclip.copy(password)
 
     return password
 
@@ -153,6 +155,7 @@ def main():
         askForInfo()
     else:
         print(generatePassword())
+        print("copied to clipboard.")
 
 
 if __name__ == '__main__':
